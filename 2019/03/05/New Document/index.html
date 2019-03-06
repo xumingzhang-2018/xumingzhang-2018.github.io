@@ -7,7 +7,6 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    Archives: 2019/3 |
     
     ZXM&#39;S BLOG</title>
   
@@ -23,62 +22,90 @@
 <body>
 <main class="content">
   <section class="outer">
-  <article class="articles">
+  <article id="post-New Document" class="article article-type-post" itemscope itemprop="blogPost">
+
+  <div class="article-inner">
     
-    <h1 class="page-type-title">2019/3</h1>
 
     
-    
-    
-      
-      
+      <div class="article-meta">
+        <a href="/2019/03/05/New Document/" class="article-date">
+  <time datetime="2019-03-05T15:29:53.090Z" itemprop="datePublished">2019-03-05</time>
+</a>
         
-        
-    <div class="archives-wrap">
-      <div class="archive-year-wrap">
-        <a href="/archives/2019" class="archive-year">2019</a>
       </div>
-      <div class="archives">
-        
-        <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/03/05/New Document/" class="archive-article-date">
-  <time datetime="2019-03-05T15:29:53.090Z" itemprop="datePublished">03/05</time>
-</a>
-      
-    </header>
     
-  </div>
-</article>
-        
-      
-      
-        <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/03/04/hello-world/" class="archive-article-date">
-  <time datetime="2019-03-04T11:56:53.438Z" itemprop="datePublished">03/04</time>
-</a>
-      
-  
-    <h2 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/04/hello-world/">Hello World</a>
-    </h2>
-  
 
-    </header>
-    
-  </div>
-</article>
-        
-        
-      </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+        <p>#GitHub+Hexo 搭建个人网站</p>
+<hr>
+<p>##一、搭建博客</p>
+<p>###1、下载Git for Windows并安装。<br>下载地址：<a href="https://github.com/waylau/git-for-win" target="_blank" rel="noopener">https://github.com/waylau/git-for-win</a></p>
+<p><img src="https://i.imgur.com/bPUZ2qm.png" alt></p>
+<p>###2、下载Node.js并安装。</p>
+<p>下载地址：<a href="https://nodejs.org/en/download" target="_blank" rel="noopener">https://nodejs.org/en/download</a></p>
+<p><img src="https://i.imgur.com/WlKMVnV.png" alt></p>
+<p>###3、安装Hexo博客框架工具<br>在<strong>自己新建的目录</strong>（最好新建一个，以后自己Blog的所有东西都存放在这里）下单击右键，选择“Git Bash Here”，打开Git Bash， 执行如下npm命令即可安装。</p>
+<pre><code>$ npm install -g hexo-cli
+$ hexo init &lt;folder&gt;
+$ cd &lt;folder&gt;
+$ npm install
+</code></pre>
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/05/New Document/" data-id="cjswh53yw0000vgvsioowr3rs" class="article-share-link">Share</a>
+      
+    </footer>
+
+  </div>
+
+  
     
+  <nav class="article-nav">
+    
+    
+      <a href="/2019/03/04/hello-world/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">Hello World</div>
+      </a>
+    
+  </nav>
+
+
   
+
   
-</article></section>
+    
+  <div class="gitalk" id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+      var gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: [''],
+        // id: location.pathname,      // Ensure uniqueness and length less than 50
+        id: md5(location.pathname),
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+  gitalk.render('gitalk-container')
+  </script>
+
+  
+
+</article>
+
+
+
+</section>
   <footer class="footer">
   
   <div class="outer">

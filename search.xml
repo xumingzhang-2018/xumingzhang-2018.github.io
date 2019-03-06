@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title></title>
+    <url>%2F2019%2F03%2F05%2FNew%20Document%2F</url>
+    <content type="text"><![CDATA[#GitHub+Hexo 搭建个人网站 ##一、搭建博客 ###1、下载Git for Windows并安装。下载地址：https://github.com/waylau/git-for-win ###2、下载Node.js并安装。 下载地址：https://nodejs.org/en/download ###3、安装Hexo博客框架工具在自己新建的目录（最好新建一个，以后自己Blog的所有东西都存放在这里）下单击右键，选择“Git Bash Here”，打开Git Bash， 执行如下npm命令即可安装。 $ npm install -g hexo-cli $ hexo init &lt;folder&gt; $ cd &lt;folder&gt; $ npm install]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2019%2F03%2F04%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. ## Quick Start### Create a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>
