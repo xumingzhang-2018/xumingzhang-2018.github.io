@@ -60,6 +60,16 @@
 
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/03/05/GitHub+Hexo 搭建个人网站/">GitHub+Hexo 搭建个人网站</a>
+    </h2>
+  
+
+      </header>
+    
 
     
       <div class="article-meta">
@@ -74,121 +84,14 @@
       
       
       
-        <p>#GitHub+Hexo 搭建个人网站</p>
-<hr>
-<p>##一、搭建博客</p>
-<p>###1.1、下载Git for Windows并安装。<br>下载地址：<a href="https://github.com/waylau/git-for-win" target="_blank" rel="noopener">https://github.com/waylau/git-for-win</a></p>
-<p><img src="https://i.imgur.com/bPUZ2qm.png" alt></p>
-<p>###1.2、下载Node.js并安装。</p>
-<p>下载地址：<a href="https://nodejs.org/en/download" target="_blank" rel="noopener">https://nodejs.org/en/download</a></p>
-<p><img src="https://i.imgur.com/WlKMVnV.png" alt></p>
-<p>###1.3、安装Hexo博客框架工具<br>在任意盘（D、E和F盘）下单击右键-&gt;选择“Git Bash Here”-&gt;打开Git Bash终端；</p>
-<p>  <img src="https://i.imgur.com/aue84AK.png" alt></p>
-<p>依次输入以下命令：</p>
-<pre><code>$ npm install -g hexo-cli
-$ hexo init Blog  #Blog是文件夹名
-$ cd Blog
-$ npm install
-</code></pre><p>查看效果，依次输入以下命令：</p>
-<pre><code>$ npm install hexo-server --save
-$ hexo server
-</code></pre><p><img src="https://i.imgur.com/g4ch3Tk.png" alt></p>
-<p>复制上图所示网址即可查看效果</p>
-<p>##二、开启GitHub Pages服务</p>
-<p>###2.1、新建仓库（Repository）<br>在自己的Github上进行如下操作：</p>
-<ol>
-<li><ul>
-<li>点击用户左侧的+号菜单中的New repOSitory</li>
-</ul>
-</li>
-<li><ul>
-<li>比如你的用户名是A, Repository name里面就填上 A.github.io</li>
-</ul>
-</li>
-<li><ul>
-<li>是否公开选项可以选取Public</li>
-</ul>
-</li>
-<li><ul>
-<li>勾选step4处，会自动生成一份可编辑的README.md文件（建议勾选）</li>
-</ul>
-</li>
-<li><ul>
-<li>点击create repOSitory生成仓库，完毕</li>
-</ul>
-</li>
-</ol>
-<p><img src="https://i.imgur.com/WFmE3zH.png" alt></p>
-<p>#####查看新建的仓库（Repository）<br>可以回到github个人首页点击右侧的仓库区<br>进入后在step1处选择并复制http地址，注意此时step2处应该是空的</p>
-<p>###2.2、 配置SSH<br> 1、打开git bash，输入cd ~/.ssh，如果果提示：No such file or directory 说明未配置SSH。本地生成密钥对</p>
-<pre><code>$ ssh-keygen -t rsa -C 1111111@qq.com  #1111111@qq.com为你的邮箱。按提示指定保存文件夹，不设置密码。
-</code></pre><p> 2、添加公钥到Github</p>
-<p>1）根据上一步的提示，找到公钥文件（默认为id_rsa.pub），用记事本打开，全选并复制。<br><img src="https://i.imgur.com/75MNy1A.png" alt></p>
-<p>2）登录Github-&gt;右上角 头像 -&gt; Settings —&gt; SSH keys —&gt; New SSH key。把公钥粘贴到key中，填好title并点击 Add key。<br><img src="https://i.imgur.com/cPq4vFU.png" alt></p>
-<p><img src="https://i.imgur.com/gu0l9jB.png" alt><br>3）git bash中输入命令ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>，选yes，等待片刻可看到成功提示。<br><img src="https://i.imgur.com/8wPzXfp.png" alt></p>
-<p>###2.3 终端上传博客</p>
-<p>1）进入终端，执行以下命令（会提示输入github用户名和密码）</p>
-<pre><code>$ npm install hexo-deployer-git --save
-</code></pre><p>2）安装完毕后，输入获取代码</p>
-<pre><code>$ hexo g
-</code></pre><p>3）最后上传代码</p>
-<pre><code>$ hexo d
-</code></pre><p>##三、更换主题</p>
-<p>###3.1 选主题<br>去<a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo的主题官网</a>挑选自己喜欢的主题风格。每个主题都在GitHub上面开源的代码。下边以我自己选择的Ocean主题为例来介绍一下。</p>
-<p>1、进入到你的本地博客根目录下，克隆你选择的主题的GitHub仓库到本地。</p>
-<pre><code>$ git clone https://github.com/zhwangart/hexo-theme-ocean.git themes/ocean
-</code></pre><p>###3.2 修改主题<br>1、修改你博客根目录下的_config.yml文件里的theme配置来更换使用的主题，当然，也可以修改其它东西。</p>
-<pre><code>theme: ocean
-</code></pre><p>添加搜索功能，如果博客的搜索功能不能用，在根目录下的_config.yml文件末尾添加如下内容：</p>
-<pre><code>search:
-  path: search.xml
-  field: post
-  format: html
-</code></pre><p>2、保存修改并上传</p>
-<p>在博客根目录下打开git bash，输入以下命令：<br>    $ hexo g<br>    $ hexo d<br>4、执行以下命令预览主题</p>
-<pre><code>$ hexo clean &amp;&amp; hexo s
-</code></pre><p>##四、写博客</p>
-<p>###4.1 下载并安装MarkdownPad2<br>1、下载MarkdownPad软件</p>
-<blockquote>
-</blockquote>
-<p> 下载地址：<a href="http://markdownpad.com/download/markdownpad2-setup.exe" target="_blank" rel="noopener">http://markdownpad.com/download/markdownpad2-setup.exe</a></p>
-<p>2、安装</p>
-<p> 点击可直接进行下载，然后一路的next。</p>
-<p> 1）安装完会出现如下界面，选择“Enter Key”<br><img src="https://i.imgur.com/o7dSDN8.png" alt></p>
-<p>2) 输入markdownpad2.0的注册码</p>
-<blockquote>
-</blockquote>
-<p> 邮箱：</p>
-<blockquote>
-<p><a href="mailto:Soar360@live.com" target="_blank" rel="noopener">Soar360@live.com</a></p>
-</blockquote>
-<p>授权秘钥：<br> GBPduHjWfJU1mZqcPM3BikjYKF6xKhlKIys3i1MU2eJHqWGImDHzWdD6xhMNLGVpbP2M5SN6bnxn 2kSE8qHqNY5QaaRxmO3YSMHxlv2EYpjdwLcPwfeTG7kUdnhKE0vVy4RidP6Y2wZ0q74f47fzsZo4 5JE2hfQBFi2O9Jldjp1mW8HUpTtLA2a5/sQytXJUQl/  QKO0jUQY4pa5CCx20sV1ClOTZtAGngSOJtIOFXK599sBr5aIEFyH0K7H4BoNMiiDMnxt1rD8Vb/ ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ==</p>
-<p>3、为什么会有3？</p>
-<p>完成上步，打开会出现下图情况</p>
-<p><img src="https://i.imgur.com/QBM1Hck.png" alt></p>
-<p>因为还缺少实时预览的引擎，相当于html解析的引擎吧~安装完了之后就好了</p>
-<blockquote>
-</blockquote>
-<p>下载地址:<a href="http://markdownpad.com/download/awesomium_v1.6.6_sdk_win.exe" target="_blank" rel="noopener">http://markdownpad.com/download/awesomium_v1.6.6_sdk_win.exe</a></p>
-<p>###4.2 写博客<br>用上步安装的markdownpad2.0写好博客，写好后将其放在 “D:\Blog\source_posts”目录下。</p>
-<blockquote>
-</blockquote>
-<p>Markdown基本语法：<a href="https://www.jianshu.com/p/191d1e21f7ed" target="_blank" rel="noopener">https://www.jianshu.com/p/191d1e21f7ed</a></p>
-<p>###4.3 上传博客</p>
-<p>在主目录Blog下打开Git Bash，依次输入以下命令：</p>
-<pre><code>$ hexo g  #获取博客
-$ hexo d  #上传博客
-</code></pre><p>###4.4 删除博客<br>删除文章的过程一样也很简单，先删除本地文件，然后通过生成和部署命令进而将远程仓库中的文件也一并删除。具体来说，以最开始默认形成的helloworld.md这篇文章为例。</p>
-<p>1、进入到source / _post 文件夹中，找到helloworld.md文件，在本地直接执行删除。</p>
-<p>2、在主目录Blog下打开Git Bash，依次执行以下命令：</p>
-<pre><code>$ hexo g
-$ hexo d
-</code></pre><p>3、再去主页查看你就会发现你的博客上面已经空空如也了，这就是如何删除文章的方法。</p>
-
+        <h2 id="GitHub-Hexo-搭建个人网站"><a href="#GitHub-Hexo-搭建个人网站" class="headerlink" title="#GitHub+Hexo 搭建个人网站"></a>
+        
+          <a class="article-more-link" href="/2019/03/05/GitHub+Hexo 搭建个人网站/">Read More...</a>
+        
       
-    </div>
+    </h2></div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/05/GitHub+Hexo 搭建个人网站/" data-id="cjswwenua0000igvspzf9czjc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/05/GitHub+Hexo 搭建个人网站/" data-id="cjswwusbp0000acvs23374plx" class="article-share-link">Share</a>
       
     </footer>
 
@@ -238,7 +141,7 @@ $ hexo d
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/04/hello-world/" data-id="cjswwenyc0001igvsgvfos9hd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/04/hello-world/" data-id="cjswwusc20001acvsvnaey74f" class="article-share-link">Share</a>
       
     </footer>
 
