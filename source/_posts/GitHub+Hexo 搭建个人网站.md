@@ -1,0 +1,154 @@
+---
+title: GitHub+Hexo 搭建个人网站
+---
+Come On！
+
+<!--more--> 
+
+## 一、搭建博客
+
+### 1.1 下载Git for Windows并安装。
+
+    下载地址：https://github.com/waylau/git-for-win
+![](https://i.imgur.com/bPUZ2qm.png)
+### 1.2、下载Node.js并安装。
+
+    下载地址：https://nodejs.org/en/download
+![](https://i.imgur.com/WlKMVnV.png)
+
+### 1.3、安装Hexo博客框架工具
+
+在任意盘（D、E和F盘）下单击右键->选择“Git Bash Here”->打开Git Bash终端；
+
+  ![](https://i.imgur.com/aue84AK.png)
+
+依次输入以下命令：
+
+    $ npm install -g hexo-cli
+    $ hexo init Blog  #Blog是文件夹名
+    $ cd Blog
+    $ npm install
+查看效果，依次输入以下命令：
+
+    $ npm install hexo-server --save
+    $ hexo server
+![](https://i.imgur.com/g4ch3Tk.png)
+
+复制上图所示网址即可查看效果
+
+## 二、开启GitHub Pages服务
+### 2.1、新建仓库（Repository）
+1. 在自己的Github上进行如下操作：
+1. 点击用户左侧的+号菜单中的New repOSitory
+1. 比如你的用户名是A, Repository name里面就填上 A.github.io
+1. 是否公开选项可以选取Public
+1. 勾选step4处，会自动生成一份可编辑的README.md文件（建议勾选）
+1. 点击create repOSitory生成仓库，完毕
+![](https://i.imgur.com/WFmE3zH.png)
+** 查看新建的仓库（Repository）**
+可以回到github个人首页点击右侧的仓库区
+进入后在step1处选择并复制http地址，注意此时step2处应该是空的
+### 2.2、 配置SSH
+ 1、打开git bash，输入cd ~/.ssh，如果果提示：No such file or directory 说明未配置SSH。本地生成密钥对
+
+    $ ssh-keygen -t rsa -C 1111111@qq.com    #说明：1111111@qq.com为你的邮箱。按提示指定保存文件夹，不设置密码。
+ 2、添加公钥到Github
+1）根据上一步的提示，找到公钥文件（默认为id_rsa.pub），用记事本打开，全选并复制。
+![](https://i.imgur.com/75MNy1A.png)
+
+2）登录Github->右上角 头像 -> Settings —> SSH keys —> New SSH key。把公钥粘贴到key中，填好title并点击 Add key。
+![](https://i.imgur.com/cPq4vFU.png)
+![](https://i.imgur.com/gu0l9jB.png)
+
+3）git bash中输入命令ssh -T git@github.com，选yes，等待片刻可看到成功提示。
+![](https://i.imgur.com/8wPzXfp.png)
+
+### 2.3 终端上传博客
+1）进入终端，执行以下命令（会提示输入github用户名和密码）
+
+    $ npm install hexo-deployer-git --save
+2）安装完毕后，输入获取代码
+
+    $ hexo g
+3）最后上传代码
+
+    $ hexo d
+## 三、更换主题
+
+### 3.1 选主题
+去[hexo的主题官网](https://hexo.io/themes/)挑选自己喜欢的主题风格。每个主题都在GitHub上面开源的代码。下边以我自己选择的Ocean主题为例来介绍一下。
+
+1、进入到你的本地博客根目录下，克隆你选择的主题的GitHub仓库到本地。
+
+    $ git clone https://github.com/zhwangart/hexo-theme-ocean.git themes/ocean
+### 3.2 修改主题
+
+1、修改你博客根目录下的_config.yml文件里的theme配置来更换使用的主题，当然，也可以修改其它东西。
+
+    theme: ocean
+添加搜索功能，如果博客的搜索功能不能用，在根目录下的_config.yml文件末尾添加如下内容：
+
+    search:
+      path: search.xml
+      field: post
+      format: html
+2、保存修改并上传
+
+在博客根目录下打开git bash，输入以下命令：
+
+    $ hexo g
+    $ hexo d
+4、执行以下命令预览主题
+
+    $ hexo clean && hexo s
+## 四、写博客
+
+### 4.1 下载并安装MarkdownPad2
+
+1、下载MarkdownPad软件
+
+>下载地址：http://markdownpad.com/download/markdownpad2-setup.exe
+
+2、安装
+
+ 点击可直接进行下载，然后一路的next。
+ 1）安装完会出现如下界面，选择“Enter Key”
+![](https://i.imgur.com/o7dSDN8.png)
+
+2) 输入markdownpad2.0的注册码
+
+>邮箱：Soar360@live.com
+>
+>授权秘钥：
+ >GBPduHjWfJU1mZqcPM3BikjYKF6xKhlKIys3i1MU2eJHqWGImDHzWdD6xhMNLGVpbP2M5SN6bnxn 2kSE8qHqNY5QaaRxmO3YSMHxlv2EYpjdwLcPwfeTG7kUdnhKE0vVy4RidP6Y2wZ0q74f47fzsZo4 5JE2hfQBFi2O9Jldjp1mW8HUpTtLA2a5/sQytXJUQl/  QKO0jUQY4pa5CCx20sV1ClOTZtAGngSOJtIOFXK599sBr5aIEFyH0K7H4BoNMiiDMnxt1rD8Vb/ ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ==
+
+3、为什么会有3？
+
+完成上步，打开会出现下图情况
+
+![](https://i.imgur.com/QBM1Hck.png)
+
+因为还缺少实时预览的引擎，相当于html解析的引擎吧~安装完了之后就好了
+>下载地址:http://markdownpad.com/download/awesomium_v1.6.6_sdk_win.exe
+
+### 4.2 写博客
+用上步安装的markdownpad2.0写好博客，写好后将其放在 “D:\Blog\source\_posts”目录下。
+>
+[Markdown基本语法](https://www.jianshu.com/p/191d1e21f7ed)
+
+### 4.3 上传博客
+在主目录Blog下打开Git Bash，依次输入以下命令：
+
+    $ hexo g  #生成静态网页
+    $ hexo d  #上传博客
+也可一次性执行：
+
+    hexo clean && hexo g && hexo d
+### 4.4 删除博客
+删除文章的过程一样也很简单，先删除本地文件，然后通过生成和部署命令进而将远程仓库中的文件也一并删除。具体来说，以最开始默认形成的helloworld.md这篇文章为例。
+1、进入到source / _post 文件夹中，找到helloworld.md文件，在本地直接执行删除。
+2、在主目录Blog下打开Git Bash，依次执行以下命令：
+
+    $ hexo g
+    $ hexo d
+3、再去主页查看你就会发现你的博客上面已经空空如也了，这就是如何删除文章的方法。
